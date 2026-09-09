@@ -1,0 +1,192 @@
+/* Post-page overrides. Loaded after styles.css and aux.css on blogs/*.html. */
+
+/* Posts run wider than the homepage so display math has room. The top bar
+   reads the same variable, so it stays aligned with the column. */
+:root {
+  --prose-max: 48rem;
+}
+
+/* Post header: title, byline, hairline. The generic section rule would be a
+   second line right above the byline, so it is dropped here. */
+.section-header .section-rule {
+  display: none;
+}
+
+.page-section-content h1 {
+  font-size: 2.05rem;
+  font-weight: var(--weight-body);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  margin-bottom: 0.35rem;
+}
+
+.page-section-content .author {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}
+
+.section-header hr {
+  margin: 0.85rem 0 1.75rem;
+  border-top: 1px solid var(--rule);
+  opacity: 1;
+}
+
+/* Post headings. "## Section" is the main division of a post and carries a
+   hairline so the eye can find it while scrolling; "### Subsection" is a
+   smaller, bolder run-in label with no rule. The two levels differ in size,
+   weight and rule, so a subsection never reads as a section. */
+.blog-entry h2 {
+  font-size: 1.45rem;
+  font-weight: var(--weight-medium);
+  line-height: 1.25;
+  margin: 2.4rem 0 0.7rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--rule);
+}
+.blog-entry h3 {
+  font-size: 1.08rem;
+  font-weight: var(--weight-strong);
+  line-height: 1.3;
+  margin: 1.7rem 0 0.3rem;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+/* Fourth level is rare; keep it a small label rather than the global h4,
+   which is larger than the h3 above it. */
+.blog-entry h4 {
+  font-size: 0.8rem;
+  font-weight: var(--weight-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  margin: 1.35rem 0 0.25rem;
+}
+
+@media (max-width: 991.98px) {
+  .blog-entry h2 { font-size: 1.3rem; }
+  .blog-entry h3 { font-size: 1.02rem; }
+}
+
+/* Table of contents, written in markdown as "\tableofcontents". The headings
+   it links to sit under the fixed top bar without the offset. */
+.blog-entry h2,
+.blog-entry h3 {
+  scroll-margin-top: calc(var(--topnav-height) + 1rem);
+}
+
+.toc {
+  border-left: 2px solid var(--rule);
+  padding: 0.1rem 0 0.1rem 1.1rem;
+  margin: 1.75rem 0 2.25rem;
+}
+.toc-title {
+  font-weight: var(--weight-strong);
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.toc-item {
+  margin: 0.2rem 0;
+}
+.toc-level-3 {
+  padding-left: 1.4rem;
+  font-size: 0.9rem;
+}
+.toc-item a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.toc-item a:hover {
+  color: var(--navy);
+  text-decoration: underline;
+}
+.toc-number {
+  display: inline-block;
+  min-width: 1.9rem;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ::: theorem / ::: lemma */
+.theorem-box,
+.lemma-box {
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--navy);
+  background: var(--navy-wash);
+  padding: 0.9rem 1.15rem;
+  border-radius: 2px;
+  margin: 1.5rem 0;
+}
+.lemma-box {
+  border-left-color: var(--navy-soft);
+}
+.theorem-title,
+.lemma-title {
+  font-weight: var(--weight-strong);
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.theorem-box > p:last-child,
+.lemma-box > p:last-child {
+  margin-bottom: 0;
+}
+.theorem-subtle,
+.lemma-subtle {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Inline emphasis by color, written in markdown as <span class="red">text</span>. */
+.red {
+  color: var(--red);
+}
+
+/* Figures */
+.figure-container {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+.figure-image {
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  display: inline-block;
+}
+.figure-caption {
+  margin-top: 0.45rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* ::: note — closing aside at the end of a post. */
+.post-note {
+  font-style: italic;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+}
+.post-note-title {
+  font-style: normal;
+  font-weight: var(--weight-strong);
+  color: var(--navy);
+}

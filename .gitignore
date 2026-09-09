@@ -1,0 +1,10 @@
+.DS_Store
+
+# Local font-testing scratch page
+font-preview.html
+
+# Stray zero-byte file from a typo'd redirect
+=
+
+# Apache config for the retired Princeton CS host; inert on GitHub Pages
+.htaccess

@@ -1,0 +1,849 @@
+@charset "UTF-8";
+/*!
+* Start Bootstrap - Resume v7.0.6 (https://startbootstrap.com/theme/resume)
+* Copyright 2013-2023 Start Bootstrap
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
+*/
+/*!
+ * Bootstrap  v5.2.3 (https://getbootstrap.com/)
+ * Copyright 2011-2022 The Bootstrap Authors
+ * Copyright 2011-2022 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+:root {
+  /* Theme: navy + Palatino. Everything below the Bootstrap block reads from
+     these, so changing the accent means changing --navy and its variants. */
+  --navy: #1f3864;
+  --navy-deep: #16294a;
+  --navy-soft: #3c5a96;
+  --navy-wash: #f4f6fa;
+  --navy-wash-deep: #eaeff7;
+  --rule: #dde3ee;
+  --ink: #1d2433;
+  --ink-soft: #5a6274;
+  --paper: #fff;
+  --red: #b3261e;
+
+  /* ---------------------------------------------------------------- type
+     THE FONT SWITCH. Every rule on the site reads --font-serif, so changing
+     the one line below changes the whole site. Open /font-preview.html to
+     compare the options side by side.
+
+     --body-size travels with it: these families differ a lot in x-height, so
+     a size that suits one looks too big or too small in another. The value
+     noted next to each stack is the one it was checked at.
+
+     Book Antiqua / Palatino  17.5px  wide sidebearings, low x-height; roomy
+                                      and formal, but loose in long prose
+     Charter                  16.5px  compact, tall x-height, built for
+                                      screens; the easiest to read at length
+     Iowan Old Style          16.5px  warm old-style with Palatino's
+                                      character but far tighter fitting
+     Athelas                  16.5px  book serif, slightly more contrast
+     STIX Two Text            16.5px  Times-like; matches MathJax output most
+                                      closely, so formulae stop looking
+                                      pasted in
+     Georgia                    16px  sturdy and universal, least distinctive
+     ui-serif                 16.5px  whatever the OS calls its reading serif
+                                      (New York on macOS); varies by platform
+  */
+  --font-serif: "STIX Two Text", "Times New Roman", Times, serif;
+  --body-size: 16.5px;
+
+  /* Negative values tighten the gaps between characters. Palatino takes about
+     -0.005em before it starts to look cramped; the tighter faces want 0. */
+  --body-tracking: 0em;
+
+  /* WEIGHTS. Every font-weight on the site resolves to one of these three.
+
+       --weight-body     running text, top bar name, post titles (h1)
+       --weight-medium   post h2 and blog index entry titles
+       --weight-strong   section labels, h3, publication and teaching titles,
+                         theorem labels, table headers
+
+     STIX Two Text has a real weight axis, so all three render distinctly.
+     Most of the other stacks (Charter, Georgia, Iowan Old Style, Palatino)
+     ship only a regular and a bold: with those, 100-500 all come out regular
+     and 600-900 all come out bold, which collapses --weight-medium into
+     --weight-body. Their Times New Roman fallback behaves the same way, so
+     visitors without STIX installed see two steps rather than three. */
+  --weight-body: 400;
+  --weight-medium: 500;
+  --weight-strong: 600;
+
+  /* Other stacks, ready to paste over --font-serif above:
+
+  --font-serif: "Book Antiqua", "Palatino Linotype", Palatino, "URW Palladio L", Georgia, serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-serif: Athelas, Charter, Georgia, serif;
+  --font-serif: "STIX Two Text", "Times New Roman", Times, serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-serif: ui-serif, "Iowan Old Style", Georgia, serif;
+  */
+
+  --topnav-height: 3.5rem;
+  --prose-max: 44rem;
+
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #bd5d38;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-black: #000;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #e9ecef;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #6c757d;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #343a40;
+  --bs-gray-900: #212529;
+  --bs-primary: #1f3864;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  --bs-primary-rgb: 31, 56, 100;
+  --bs-secondary-rgb: 108, 117, 125;
+  --bs-success-rgb: 25, 135, 84;
+  --bs-info-rgb: 13, 202, 240;
+  --bs-warning-rgb: 255, 193, 7;
+  --bs-danger-rgb: 220, 53, 69;
+  --bs-light-rgb: 248, 249, 250;
+  --bs-dark-rgb: 33, 37, 41;
+  --bs-white-rgb: 255, 255, 255;
+  --bs-black-rgb: 0, 0, 0;
+  --bs-body-color-rgb: 33, 37, 41;
+  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  --bs-body-font-family: var(--font-serif);
+  --bs-body-font-size: var(--body-size);
+  --bs-body-font-weight: var(--weight-body);
+  --bs-body-line-height: 1.65;
+  --bs-body-color: var(--ink);
+  --bs-body-bg: var(--paper);
+  --bs-border-width: 1px;
+  --bs-border-style: solid;
+  --bs-border-color: var(--rule);
+  --bs-border-color-translucent: rgba(31, 56, 100, 0.15);
+  --bs-border-radius: 0.375rem;
+  --bs-border-radius-sm: 0.25rem;
+  --bs-border-radius-lg: 0.5rem;
+  --bs-border-radius-xl: 1rem;
+  --bs-border-radius-2xl: 2rem;
+  --bs-border-radius-pill: 50rem;
+  --bs-link-color: var(--navy);
+  --bs-link-hover-color: var(--navy-soft);
+  --bs-code-color: var(--navy-deep);
+  --bs-highlight-bg: #eef2f9;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  letter-spacing: var(--body-tracking);
+  color: var(--ink);
+  text-align: var(--bs-body-text-align);
+  background-color: var(--bs-body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+hr {
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+  border-top: 1px solid;
+  opacity: 0.25;
+}
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-serif);
+  font-weight: var(--weight-body);
+  line-height: 1.25;
+  color: var(--navy);
+}
+
+h2, .h2 {
+  font-size: calc(1.475rem + 2.7vw);
+}
+@media (min-width: 1200px) {
+  h2, .h2 {
+    font-size: 3.5rem;
+  }
+}
+
+h3, .h3 {
+  font-size: calc(1.325rem + 0.9vw);
+}
+@media (min-width: 1200px) {
+  h3, .h3 {
+    font-size: 2rem;
+  }
+}
+
+h4, .h4 {
+  font-size: calc(1rem + 0.3vw);
+}
+@media (min-width: 1200px) {
+  h4, .h4 {
+    font-size: 1.5rem;
+  }
+}
+
+h5, .h5 {
+  font-size: 1.25rem;
+}
+
+h6, .h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+abbr[title] {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+  cursor: help;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
+address {
+  margin-bottom: 1rem;
+  font-style: normal;
+  line-height: inherit;
+}
+
+ol,
+ul {
+  padding-left: 2rem;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+}
+
+blockquote {
+  margin: 0 0 1rem;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+small, .small {
+  font-size: 0.875em;
+}
+
+mark, .mark {
+  padding: 0.1875em;
+  background-color: var(--bs-highlight-bg);
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 0.75em;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+a {
+  color: var(--bs-link-color);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(31, 56, 100, 0.35);
+  text-underline-offset: 0.14em;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+a:hover {
+  color: var(--bs-link-hover-color);
+  text-decoration-color: currentColor;
+}
+
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  --bs-gutter-x: 1rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container-sm, .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container-md, .container-sm, .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container-lg, .container-md, .container-sm, .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1320px;
+  }
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}
+
+
+/* ==========================================================================
+   Top bar
+   ========================================================================== */
+
+.bg-primary {
+  --bs-bg-opacity: 1;
+  background-color: var(--navy) !important;
+}
+
+.text-bg-primary {
+  color: #fff !important;
+  background-color: var(--navy) !important;
+}
+
+#topNav {
+  --bs-navbar-color: rgba(255, 255, 255, 0.62);
+  --bs-navbar-hover-color: #fff;
+  --bs-navbar-active-color: #fff;
+  --bs-navbar-brand-color: #fff;
+  --bs-navbar-brand-hover-color: #fff;
+  padding: 0 1.5rem;
+}
+
+/* The bar spans the window, but its contents share the prose column's width
+   and gutter, so the profile picture lines up with the text below it. */
+.topnav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--prose-max);
+  margin: 0 auto;
+  min-height: var(--topnav-height);
+}
+
+#topNav .navbar-brand {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.topnav-name {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-body);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.topnav-social {
+  display: flex;
+  align-items: center;
+}
+.topnav-social .social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.9rem;
+  width: 1.9rem;
+  border-radius: 100%;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  margin-right: 0.35rem;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.topnav-social .social-icon:last-child {
+  margin-right: 0;
+}
+.topnav-social .social-icon:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+/* The nav links sit on navy, so the underline the base rule gives every link
+   would read as clutter here. */
+#topNav .navbar-nav .nav-item .nav-link {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0;
+  text-decoration: none;
+}
+
+/* Wide enough for one row: links and icons are pushed to the right edge. */
+@media (min-width: 992px) {
+  .topnav-inner { flex-wrap: nowrap; }
+  #topNav .navbar-collapse {
+    justify-content: flex-end;
+    gap: 1.5rem;
+  }
+  #topNav .navbar-nav { gap: 1.25rem; }
+}
+
+/* Narrow: the toggler opens links and icons as a panel under the bar. */
+@media (max-width: 991.98px) {
+  #topNav .navbar-collapse { padding-bottom: 0.6rem; }
+  #topNav .topnav-social { margin-top: 0.4rem; }
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+body { padding-top: var(--topnav-height); }
+
+/* Sections have no divider of their own, so this vertical padding is the gap
+   between them: neighbours contribute one padding each. */
+section.page-section {
+  padding: 1.25rem 1.5rem;
+  border: 0;
+  scroll-margin-top: calc(var(--topnav-height) + 0.5rem);
+}
+section.page-section:first-of-type { padding-top: 2rem; }
+
+.page-section-content {
+  max-width: var(--prose-max);
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Section headings
+   ========================================================================== */
+
+.section-header { margin-bottom: 1rem; }
+.section-kicker { display: none; }
+
+/* Small letter-spaced navy label over a hairline: the only ornament the
+   homepage uses to separate sections. */
+.section-title {
+  font-size: 0.82rem;
+  font-weight: var(--weight-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--navy);
+  margin: 0;
+}
+.section-rule {
+  height: 1px;
+  background-color: var(--rule);
+  margin-top: 0.55rem;
+}
+
+/* ==========================================================================
+   Prose
+   ========================================================================== */
+
+.page-section-content h2 {
+  font-size: 1.5rem;
+  font-weight: var(--weight-medium);
+  margin: 1.9rem 0 0.5rem;
+}
+.page-section-content h3 {
+  font-size: 1.15rem;
+  font-weight: var(--weight-strong);
+  margin: 1.5rem 0 0.35rem;
+}
+
+.page-section-content p {
+  margin: 0 0 0.85rem;
+}
+.page-section-content ul,
+.page-section-content ol {
+  margin: 0.5rem 0 0.9rem;
+  padding-left: 1.35rem;
+}
+.page-section-content li { margin: 0.2rem 0; }
+
+.page-section-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+.page-section-content th,
+.page-section-content td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+}
+.page-section-content th {
+  font-weight: var(--weight-strong);
+  color: var(--navy);
+}
+
+/* ==========================================================================
+   About identity
+   ========================================================================== */
+
+/* The portrait is part of the heading—not the prose—so the bio retains the
+   same full-width measure as every other section. */
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.35rem;
+}
+.about-portrait {
+  flex: none;
+  width: 6.5rem;
+  height: 6.5rem;
+  border: 1px solid var(--rule);
+}
+.about-heading {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 575.98px) {
+  .about-header { gap: 1rem; }
+  .about-portrait {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}
+
+/* ==========================================================================
+   Publications, teaching
+   ========================================================================== */
+
+/* The default list marker sits too far from a hanging-indent entry, so the
+   number is drawn from a counter instead. */
+.page-section-content .pub-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  counter-reset: pub;
+}
+.pub-list > li {
+  position: relative;
+  counter-increment: pub;
+  padding-left: 1.8rem;
+  margin-bottom: 1rem;
+}
+.pub-list > li:last-child { margin-bottom: 0; }
+.pub-list > li::before {
+  content: counter(pub) ".";
+  position: absolute;
+  left: 0;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.pub-title { font-weight: var(--weight-strong); }
+.pub-authors {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  margin-top: 0.1rem;
+}
+/* Trails the title on the same line, so it carries its own leading space. */
+.pub-venue {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-left: 0.45rem;
+}
+.pub-links { margin-top: 0.1rem; }
+
+/* Measured against the available width by clampAuthorLists(). */
+.pub-authors.is-clamped {
+  white-space: nowrap;
+  overflow: hidden;
+}
+.pub-authors-more {
+  all: unset;
+  cursor: pointer;
+  color: var(--navy);
+  font-size: inherit;
+  line-height: inherit;
+}
+.pub-authors-more:hover { color: var(--navy-soft); }
+
+.item { display: block; padding: 0 0 0.9rem; border: 0; }
+.item-title,
+.item-meta,
+.item-actions { display: block; margin: 0; }
+.item-title {
+  font-weight: var(--weight-strong);
+  color: var(--navy);
+}
+.item-meta {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.tag { display: none; }
+
+/* Rendered as [link], so it reads as a reference rather than a button. */
+.link-btn {
+  all: unset;
+  cursor: pointer;
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: rgba(31, 56, 100, 0.35);
+  text-underline-offset: 0.14em;
+  font-size: inherit;
+  line-height: inherit;
+}
+.link-btn:hover {
+  color: var(--navy-soft);
+  text-decoration-color: currentColor;
+}
+.pub-links,
+.item-meta {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 991.98px) {
+  section.page-section { padding: 0.9rem 1.1rem; }
+  .page-section-content h2 { font-size: 1.35rem; }
+}
+
+/* ==========================================================================
+   Blog
+
+   .blog-entry is used twice: <article> for a row in the homepage index, and
+   <section> for the body of a post. Rules that only make sense for the index
+   are scoped to article.blog-entry.
+   ========================================================================== */
+
+article.blog-entry {
+  padding: 0 0 1.1rem;
+  border-bottom: 1px solid var(--rule);
+}
+article.blog-entry:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+article.blog-entry + article.blog-entry {
+  padding-top: 1.1rem;
+}
+
+article.blog-entry .entry-title {
+  all: unset;
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: var(--weight-medium);
+  line-height: 1.35;
+}
+article.blog-entry .entry-title a {
+  color: var(--navy);
+  text-decoration: none;
+}
+article.blog-entry .entry-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+article.blog-entry .blog-tldr {
+  margin-top: 0.3rem;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.blog-entry .entry-meta {
+  margin: 0 0 0.75rem 0;
+  color: var(--ink-soft);
+  font-size: var(--bs-body-font-size);
+}
+
+/* Headings inside posts are styled in blog.css, which only post pages load. */
+
+/* Text, lists */
+.blog-entry p {
+  margin: 0 0 0.9rem;
+}
+.blog-entry ul,
+.blog-entry ol {
+  margin: 0.5rem 0 0.9rem;
+  padding-left: 1.35rem;
+}
+.blog-entry li {
+  margin: 0.2rem 0;
+}
+
+/* Images & figures */
+.blog-entry img,
+.blog-entry figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.5rem auto;
+}
+.blog-entry figure {
+  margin: 1.25rem 0;
+  text-align: center;
+}
+.blog-entry figcaption {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+}
+
+/* Code */
+.blog-entry pre,
+.blog-entry code {
+  font-family: var(--bs-font-monospace);
+  font-size: 0.88em;
+}
+.blog-entry pre {
+  background: var(--navy-wash);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.8rem 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+.blog-entry code {
+  background: var(--navy-wash);
+  color: var(--navy-deep);
+  padding: 0.1rem 0.3rem;
+  border-radius: 2px;
+}
+.blog-entry pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Blockquotes */
+.blog-entry blockquote {
+  margin: 1.15rem 0;
+  padding: 0.5rem 0 0.5rem 1.1rem;
+  border-left: 2px solid var(--navy);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.blog-entry blockquote p:last-child { margin-bottom: 0; }
+
+/* Tables */
+.blog-entry table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.1rem 0;
+}
+.blog-entry th,
+.blog-entry td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+}
+.blog-entry th {
+  font-weight: var(--weight-strong);
+  color: var(--navy);
+}
+
+/* MathJax (SVG) spacing. Display math can be wider than the column, so it
+   scrolls rather than pushing the page out. */
+.blog-entry mjx-container[display="true"] {
+  margin: 1.1rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.blog-entry mjx-container:not([display="true"]) {
+  margin: 0 0.15rem;
+}

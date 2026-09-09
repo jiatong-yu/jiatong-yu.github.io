@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Homepage template. All text lives in content/home.md -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Jiatong Yu - personal page" />
+        <meta name="author" content="Jiatong Yu" />
+        <title>Jiatong Yu - personal page</title>
+        <link rel="icon" href="assets/img/favicon.ico" />
+        <meta name="theme-color" content="#1F3864" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Type is Book Antiqua / Palatino, resolved from the system; there is no webfont to load.-->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/aux.css" rel="stylesheet" />
+
+        <script>
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    macros: {
+                        R: "\\mathbb{R}",
+                        softmax: "\\operatorname{softmax}",
+                        loss: "\\ell",
+                        delequal: "\\triangleq",
+                    }
+                },
+                svg: { fontCache: 'global' }
+            };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+    </head>
+    <body id="page-top" data-page="home" data-base="">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="topNav"></nav>
+        <main id="content"></main>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Markdown parser + site renderer-->
+        <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+        <script src="js/site.js"></script>
+    </body>
+</html>
