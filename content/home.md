@@ -44,17 +44,17 @@ EMNLP 2023
 
 
 
-## Teaching {#teaching}
+## Teaching & Services {#teaching}
 
+### [AI@Princeton Club](https://www.aiatprinceton.com/)
 
+### [Algorithms and Data Structures]((https://www.cs.princeton.edu/courses/archive/fall25/cos226/syllabus.php))
 
-### Algorithms and Data Structures
+Fall 2025, Fall 2024 
 
-Fall 2025, Fall 2024 [Syllabus](https://www.cs.princeton.edu/courses/archive/fall25/cos226/syllabus.php)
+### [Introduction to Machine Learning]((https://princeton-introml.github.io/))
 
-### Introduction to Machine Learning
-
-Spring 2025 [Syllabus](https://princeton-introml.github.io/)
+Spring 2025
 
 ### Natural Language Processing
 

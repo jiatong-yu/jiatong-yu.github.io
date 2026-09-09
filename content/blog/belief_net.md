@@ -41,4 +41,6 @@ In this blog, I will document my attempts and lessons-learned building a belief-
 **Baseline**: We will compare the proposed harness to a wiki-based memory design. The baseline converts submission records into markdown files. An agent is prompted to read the wiki, design experiments, add results to the wiki, and repeat for 10 iterations before we ask for the final verdict. 
 
 
-
+:::note Update
+This project is WIP. To be continued.
+:::

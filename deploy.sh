@@ -2,8 +2,9 @@
 #
 # Publish this site to GitHub Pages.
 #
-#   ./deploy.sh                commit all changes and push
+#   ./deploy.sh                review changes, then commit and push
 #   ./deploy.sh "message"      same, with a commit message
+#   ./deploy.sh -y             skip the confirmation prompt
 #   ./deploy.sh -n             preview only, change nothing
 #   ./deploy.sh --no-wait      push without waiting for the Pages build
 #
@@ -15,12 +16,14 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 dry_run=0
 wait_for_build=1
+assume_yes=0
 message=""
 for arg in "$@"; do
   case "$arg" in
     -n|--dry-run) dry_run=1 ;;
+    -y|--yes)     assume_yes=1 ;;
     --no-wait)    wait_for_build=0 ;;
-    -h|--help)    sed -n '2,8p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h|--help)    sed -n '2,9p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; exit 0 ;;
     -*)           echo "unknown option: $arg" >&2; exit 64 ;;
     *)            message="$arg" ;;
   esac
@@ -46,6 +49,15 @@ if ((dry_run)); then
 fi
 
 if [[ -n $pending ]]; then
+  # Everything on disk goes live, so show it before publishing a half-finished
+  # edit. Run with -y once the diff is known to be good.
+  if ((!assume_yes)); then
+    echo "these changes will go live:"
+    git status --short
+    git diff --stat
+    read -r -p "continue? [y/N] " reply
+    [[ $reply == [yY] ]] || { echo "aborted"; exit 1; }
+  fi
   git add -A
   git commit -q -m "${message:-Update site $(date '+%Y-%m-%d %H:%M')}"
   echo "committed  $(git log -1 --format='%h %s')"

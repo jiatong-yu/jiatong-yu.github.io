@@ -295,6 +295,10 @@ $$
 $$
 
 
+::: note Credits
+Thanks to [Boris Shigida](https://borshigida.github.io/) for the initial conversation and checking my Adam derivations.
+:::
+
 
 ## Appendix
 
