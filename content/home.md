@@ -38,9 +38,9 @@ Tianyu Gao, Howard Yen, Jiatong Yu, Danqi Chen
 EMNLP 2023
 
 ## Blogs {#blog}
-- belief_net
+
 - gradient_accum
-- mcp_guide
+- belief_net
 
 
 
