@@ -39,14 +39,13 @@ EMNLP 2023
 
 ## Blogs {#blog}
 
-- gradient_accum
-- belief_net
-
-
-
 ## Teaching & Services {#teaching}
 
+
+
 ### [AI@Princeton Club](https://www.aiatprinceton.com/)
+
+
 
 ### [Algorithms and Data Structures]((https://www.cs.princeton.edu/courses/archive/fall25/cos226/syllabus.php))
 
