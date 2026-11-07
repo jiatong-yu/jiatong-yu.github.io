@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<!-- Homepage template. All text lives in content/home.md -->
+<!-- Homepage template. All text lives in content/home.md, except the search
+     metadata below and the About fallback in <main>. -->
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Jiatong Yu - personal page" />
+        <meta name="description" content="Jiatong Yu is a researcher working on large language models, with a master's degree in Computer Science from Princeton University." />
         <meta name="author" content="Jiatong Yu" />
         <title>Jiatong Yu - personal page</title>
+        <link rel="canonical" href="https://jiatong-yu.github.io/" />
+        <meta property="og:type" content="profile" />
+        <meta property="og:title" content="Jiatong Yu" />
+        <meta property="og:description" content="Researcher working on large language models." />
+        <meta property="og:url" content="https://jiatong-yu.github.io/" />
+        <meta property="og:image" content="https://jiatong-yu.github.io/assets/img/profile_round.png" />
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Jiatong Yu",
+                "url": "https://jiatong-yu.github.io/",
+                "image": "https://jiatong-yu.github.io/assets/img/profile_round.png",
+                "jobTitle": "Researcher",
+                "alumniOf": { "@type": "CollegeOrUniversity", "name": "Princeton University" },
+                "sameAs": [
+                    "https://scholar.google.com/citations?user=PppvsxkAAAAJ",
+                    "https://github.com/jiatong-yu"
+                ]
+            }
+        </script>
         <link rel="icon" href="assets/img/favicon.ico" />
         <meta name="theme-color" content="#1F3864" />
         <!-- Font Awesome icons (free version)-->
@@ -36,7 +58,24 @@
     </head>
     <body id="page-top" data-page="home" data-base="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="topNav"></nav>
-        <main id="content"></main>
+        <!-- Replaced by the rendered markdown on load. It is here so search
+             engines that do not run JavaScript still see who the page is
+             about; keep it in step with the About section of home.md. -->
+        <main id="content">
+            <br>
+            <section class="page-section" id="about">
+                <div class="page-section-content">
+                    <div class="section-header about-header">
+                        <img class="about-portrait rounded-circle" src="assets/img/profile_round.png" alt="Jiatong Yu" />
+                        <div class="about-heading">
+                            <h1 class="section-title">Jiatong Yu</h1>
+                            <div class="section-rule"></div>
+                        </div>
+                    </div>
+                    <p>I'm a researcher working on large language models. My interests lie broadly in understanding learning algorithms and model behavior. I recently obtained my master's degree from Princeton Computer Science, advised by Prof. Sanjeev Arora. Before that, I graduated from Princeton class of 2024, where I had the fortune to work with Prof. Danqi Chen and Prof. Kai Li.</p>
+                </div>
+            </section>
+        </main>
 
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
