@@ -69,11 +69,10 @@
   .blog-entry h3 { font-size: 1.02rem; }
 }
 
-/* Table of contents, written in markdown as "\tableofcontents". The headings
-   it links to sit under the fixed top bar without the offset. */
+/* Table of contents, written in markdown as "\tableofcontents". */
 .blog-entry h2,
 .blog-entry h3 {
-  scroll-margin-top: calc(var(--topnav-height) + 1rem);
+  scroll-margin-top: 1rem;
 }
 
 .toc {

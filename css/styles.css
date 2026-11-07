@@ -466,44 +466,15 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: #fff;
 }
 
-/* The nav links sit on navy, so the underline the base rule gives every link
-   would read as clutter here. */
-#topNav .navbar-nav .nav-item .nav-link {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  padding: 0.3rem 0;
-  text-decoration: none;
-}
-
-/* Wide enough for one row: links and icons are pushed to the right edge. */
-@media (min-width: 992px) {
-  .topnav-inner { flex-wrap: nowrap; }
-  #topNav .navbar-collapse {
-    justify-content: flex-end;
-    gap: 1.5rem;
-  }
-  #topNav .navbar-nav { gap: 1.25rem; }
-}
-
-/* Narrow: the toggler opens links and icons as a panel under the bar. */
-@media (max-width: 991.98px) {
-  #topNav .navbar-collapse { padding-bottom: 0.6rem; }
-  #topNav .topnav-social { margin-top: 0.4rem; }
-}
-
 /* ==========================================================================
    Layout
    ========================================================================== */
-
-body { padding-top: var(--topnav-height); }
 
 /* Sections have no divider of their own, so this vertical padding is the gap
    between them: neighbours contribute one padding each. */
 section.page-section {
   padding: 1.25rem 1.5rem;
   border: 0;
-  scroll-margin-top: calc(var(--topnav-height) + 0.5rem);
 }
 section.page-section:first-of-type { padding-top: 2rem; }
 

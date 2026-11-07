@@ -251,14 +251,7 @@
 
   /* ------------------------------------------------------------------ nav */
 
-  function renderNav(meta, sections) {
-    const links = sections
-      .map(
-        (s) =>
-          `<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#${s.id}">${s.title}</a></li>`
-      )
-      .join('');
-
+  function renderNav(meta) {
     const social = [
       meta.email &&
         `<a class="social-icon" href="mailto:${meta.email}" aria-label="Email"><i class="fas fa-envelope"></i></a>`,
@@ -272,14 +265,10 @@
 
     document.getElementById('topNav').innerHTML = `
       <div class="topnav-inner">
-        <a class="navbar-brand js-scroll-trigger" href="${BASE}index.html#page-top">
+        <a class="navbar-brand" href="${BASE}index.html">
           <span class="topnav-name">${meta.name}</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav">${links}</ul>
-          <div class="topnav-social">${social}</div>
-        </div>
+        <div class="topnav-social">${social}</div>
       </div>`;
   }
 
@@ -441,7 +430,7 @@
     const sections = splitSections(source);
 
     document.title = meta.title || meta.name || document.title;
-    renderNav(meta, sections);
+    renderNav(meta);
 
     const renderers = {
       publications: renderPublications,
@@ -497,7 +486,7 @@
     document.title = `${meta.title || slug} | ${meta.site_name || 'Jiatong Yu'}`;
 
     const home = splitFrontMatter(await fetchText(`${BASE}content/home.md`));
-    renderNav(home.meta, []);
+    renderNav(home.meta);
 
     const byline = [meta.author, meta.date].filter(Boolean).join(', ');
     const main = document.getElementById('content');
@@ -606,23 +595,6 @@
 
     if (PAGE === 'home') await renderHome();
     else if (PAGE === 'post') await renderPost();
-
-    if (document.getElementById('topNav')) {
-      bootstrap.ScrollSpy.getInstance(document.body)?.dispose();
-      new bootstrap.ScrollSpy(document.body, {
-        target: '#topNav',
-        rootMargin: '0px 0px -40%',
-      });
-    }
-
-    const toggler = document.querySelector('.navbar-toggler');
-    document.querySelectorAll('#navbarResponsive .nav-link').forEach((link) => {
-      link.addEventListener('click', () => {
-        if (toggler && window.getComputedStyle(toggler).display !== 'none') {
-          toggler.click();
-        }
-      });
-    });
   }
 
   window.addEventListener('DOMContentLoaded', async () => {

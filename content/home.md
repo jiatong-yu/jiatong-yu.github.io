@@ -37,8 +37,6 @@ ICLR 2024
 Tianyu Gao, Howard Yen, Jiatong Yu, Danqi Chen
 EMNLP 2023
 
-## Blogs {#blog}
-
 ## Teaching & Services {#teaching}
 
 
